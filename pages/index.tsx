@@ -7,7 +7,7 @@ const Game = dynamic(() => import("../components/game"), { ssr: false });
 export default function Index() {
   return (
     <>
-      <Head>
+      <Head >
         <title>Wikitrivia</title>
         <link
           rel="shortcut icon"

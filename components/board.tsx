@@ -94,8 +94,6 @@ export default function Board(props: Props) {
     }
   }
 
-  // Ensure that newly placed items are rendered as draggables before trying to
-  // move them to the right place if needed.
   React.useLayoutEffect(() => {
     if (
       state.badlyPlaced &&
