@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 
@@ -10,7 +10,7 @@ const Signup = () => {
     password: '',
   })
 
-  const handleSignup = async (e: any) => {
+  const handleSignup = async (e: FormEvent) => {
     e.preventDefault()
     try {
       await signup(data.email, data.password)

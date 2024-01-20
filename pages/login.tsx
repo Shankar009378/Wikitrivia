@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 
@@ -11,9 +11,8 @@ const Login = () => {
     password: '',
   })
 
-  const handleLogin = async (e: any) => {
+  const handleLogin = async (e:  FormEvent) => {
     e.preventDefault()
-
     console.log(user)
     try {
       await login(data.email, data.password)
