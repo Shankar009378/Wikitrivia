@@ -1,28 +1,29 @@
-import React from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
-import Link from 'next/link'
-import { useAuth } from '../context/AuthContext'
-import { useRouter } from 'next/router'
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/router";
 
 const NavbarComp = () => {
-  const { user, logout } = useAuth()
-  const router = useRouter()
+  const { user, logout } = useAuth();
+  const router = useRouter();
 
   return (
     <Navbar>
       <Container>
         <Link href="/login" passHref>
-          <Navbar.Brand style={{ color: 'white' }}>WIKITRIVIA</Navbar.Brand>
+          <Navbar.Brand style={{ color: "white" }}>WIKITRIVIA</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav >
+          <Nav>
             {user ? (
               <div>
-                <Nav.Link style={{ color: 'white' }}
+                <Nav.Link
+                  style={{ color: "white", textDecoration: "none" }}
                   onClick={() => {
-                    logout()
-                    router.push('/login')
+                    logout();
+                    router.push("/login");
                   }}
                 >
                   Logout
@@ -31,10 +32,12 @@ const NavbarComp = () => {
             ) : (
               <>
                 <Link href="/signup" passHref>
-                  <Nav.Link style={{ color: 'white' }}>Signup</Nav.Link>
+                  <Navbar.Brand style={{ color: "white" }}>Signup</Navbar.Brand>
                 </Link>
                 <Link href="/login" passHref>
-                  <Nav.Link style={{ color: 'white' }}>Login</Nav.Link>
+                  <Navbar.Brand style={{ color: "white" }}>
+                    Login
+                  </Navbar.Brand>
                 </Link>
               </>
             )}
@@ -42,7 +45,7 @@ const NavbarComp = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
-export default NavbarComp
+export default NavbarComp;

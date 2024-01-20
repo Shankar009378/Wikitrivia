@@ -12,7 +12,6 @@ const Signup = () => {
 
   const handleSignup = async (e: any) => {
     e.preventDefault()
-
     try {
       await signup(data.email, data.password)
     } catch (err) {
